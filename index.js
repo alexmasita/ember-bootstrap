@@ -49,22 +49,5 @@ module.exports = {
     if (!process.env.EMBER_CLI_FASTBOOT) {
       app.import('vendor/transition.js');
     }
-  },
-
-  treeForStyles: function treeForStyles(tree) {
-    var styleTrees = [];
-
-    if (this.app.project.findAddonByName('ember-cli-less')) {
-      var lessTree = new Funnel(path.join(this.app.bowerDirectory, 'bootstrap/less'), {
-        destDir: 'ember-bootstrap'
-      });
-      styleTrees.push(lessTree);
-    }
-    
-    if (tree) {
-      styleTrees.push(tree);
-    }
-    
-    return mergeTrees(styleTrees, { overwrite: true });
   }
 };
